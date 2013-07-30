@@ -1,4 +1,4 @@
-class ViewController < UIViewController
+class GreyScaleViewController < UIViewController
   extend IB
   outlet :imageView, UIImageView
 
