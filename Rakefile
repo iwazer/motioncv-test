@@ -14,6 +14,10 @@ Motion::Project::App.setup do |app|
 
   app.vendor_project('vendor/opencv2.framework', :static,
     products: ['opencv2'],
+    headers_dir: ['Headers/imgproc','Headers/motion'],
     force_load: false
   )
+
+  app.codesign_certificate = ENV['CODESIGN_CERTIFICATE'] if ENV['CODESIGN_CERTIFICATE']
+  app.provisioning_profile = ENV['PROVISIONING_PROFILE'] if ENV['PROVISIONING_PROFILE']
 end
