@@ -2,6 +2,7 @@ class TableViewController < UITableViewController
   def viewDidLoad
     @rows = [
       "Grey Scale",
+      "Threshold Filter"
     ]
   end
 
