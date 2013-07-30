@@ -14,7 +14,8 @@ Motion::Project::App.setup do |app|
 
   app.vendor_project('vendor/opencv2.framework', :static,
     products: ['opencv2'],
-    source_files: ['Headers/imgproc/imgproc_c.h', 'Headers/imgproc/types_c.h',
+    source_files: ['Headers/core/core_c.h','Headers/core/types_c.h','Headers/core/cvdef.h',
+                   'Headers/imgproc/imgproc_c.h', 'Headers/imgproc/types_c.h',
                    'Headers/motion/MotionCV.h', 'Headers/motion/MotionMat.h'],
     force_load: false
   )
