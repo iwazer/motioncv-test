@@ -1,8 +1,8 @@
 class TableViewController < UITableViewController
   def viewDidLoad
     @rows = [
-      "Grey Scale",
-      "Threshold Filter"
+      {title: "blur", converter: Blur.new},
+      {title: "cvtColor", converter: CvtColor.new},
     ]
   end
 
@@ -15,11 +15,19 @@ class TableViewController < UITableViewController
     unless cell
       cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:"Cell")
     end
-    cell.textLabel.text = @rows[indexPath.row]
+    cell.textLabel.text = @rows[indexPath.row][:title]
     cell
   end
 
   def tableView tableView, didSelectRowAtIndexPath:indexPath
-    self.performSegueWithIdentifier(@rows[indexPath.row], sender:self)
+    @data = @rows[indexPath.row]
+    self.performSegueWithIdentifier("ImageView", sender:self)
+  end
+
+  def prepareForSegue segue, sender:sender
+    if segue.identifier == "ImageView"
+      controller = segue.destinationViewController
+      controller.data = @data
+    end
   end
 end

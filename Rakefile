@@ -15,10 +15,18 @@ Motion::Project::App.setup do |app|
   app.vendor_project('vendor/opencv2.framework', :static,
     products: ['opencv2'],
     source_files: ['Headers/imgproc/imgproc_c.h', 'Headers/imgproc/types_c.h',
+                   'Headers/motion/core_base.h',
                    'Headers/motion/MotionCV.h', 'Headers/motion/MotionMat.h'],
     force_load: false
   )
 
   app.codesign_certificate = ENV['CODESIGN_CERTIFICATE'] if ENV['CODESIGN_CERTIFICATE']
   app.provisioning_profile = ENV['PROVISIONING_PROFILE'] if ENV['PROVISIONING_PROFILE']
+end
+
+task :clean do
+  bs = File.join(File.dirname(__FILE__), 
+                 'vendor/opencv2.framework', 'opencv2.framework.bridgesupport')
+  puts "    Delete #{bs}"
+  File.delete(bs) if File.exist?(bs)
 end
