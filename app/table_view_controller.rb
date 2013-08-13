@@ -1,8 +1,9 @@
 class TableViewController < UITableViewController
   def viewDidLoad
     @rows = [
-      {title: "blur", converter: Blur.new},
+      {title: "Blur", converter: Blur.new},
       {title: "cvtColor", converter: CvtColor.new},
+      {title: "Canny", converter: Canny.new},
     ]
   end
 
