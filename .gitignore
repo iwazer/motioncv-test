@@ -15,7 +15,8 @@ nbproject
 .sass-cache
 .idea
 .dat*
-vendor
+vendor/*
+!vendor/.gitkeep
 ib.xcodeproj
 rake.out
 Gemfile.lock
