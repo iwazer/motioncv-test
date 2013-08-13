@@ -5,6 +5,7 @@ class TableViewController < UITableViewController
       {title: "cvtColor", converter: CvtColor.new},
       {title: "Canny", converter: Canny.new},
       {title: "Not", converter: Not.new},
+      {title: "Canny+Not", converter: CannyNot.new},
     ]
   end
 
