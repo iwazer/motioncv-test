@@ -21,3 +21,4 @@ ib.xcodeproj
 rake.out
 Gemfile.lock
 MainStoryboard.storyboardc
+.bundle
