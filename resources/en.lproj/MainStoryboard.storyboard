@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vqW-9N-QVP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vqW-9N-QVP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -7,9 +7,9 @@
         <!--Image View Controller-->
         <scene sceneID="ViV-Jj-L8K">
             <objects>
-                <viewController id="cmM-iM-cm3" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="cmM-iM-cm3" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qqg-by-fkM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsN-vv-KvY"/>
@@ -22,7 +22,9 @@
                             <constraint firstItem="tsN-vv-KvY" firstAttribute="top" secondItem="Qqg-by-fkM" secondAttribute="top" type="default" id="pYe-Cw-BWG"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Am8-f6-FZP"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="tsN-vv-KvY" id="VNd-Nv-j5Y"/>
                     </connections>
@@ -36,7 +38,7 @@
             <objects>
                 <tableViewController id="QA1-zP-66P" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YRk-JG-MPF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -54,7 +56,21 @@
                             <outlet property="delegate" destination="QA1-zP-66P" id="3Pv-mK-HzY"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="icM-dd-YQW"/>
+                        <barButtonItem systemItem="camera" id="UE7-2a-PHU">
+                            <connections>
+                                <action selector="take_phot:" destination="QA1-zP-66P" id="BmG-G9-wss"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="organize" id="hsb-OS-fxP">
+                            <connections>
+                                <action selector="select_photo:" destination="QA1-zP-66P" id="XyV-qT-YVL"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Samples" id="eAi-22-n13"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="cmM-iM-cm3" kind="push" identifier="ImageView" id="zBP-dC-X2x"/>
                     </connections>
@@ -80,12 +96,22 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="viewDidLoad"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="TableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="imagePickerControllerDidCancel:"/>
+                <relationship kind="action" name="select_photo:"/>
+                <relationship kind="action" name="take_phot:"/>
                 <relationship kind="action" name="viewDidLoad"/>
             </relationships>
         </class>
