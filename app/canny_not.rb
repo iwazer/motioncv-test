@@ -1,6 +1,6 @@
 class CannyNot
   def convert srcMat, dstMat
-    MotionCV.canny(srcMat, dst:dstMat, threshold1:35, threshold2:125, size:3);
-    MotionCV.not(dstMat, dst:dstMat)
+    Cv::canny(srcMat, dstMat, 35, 125, 3)
+    Cv::not(dstMat, dstMat)
   end
 end

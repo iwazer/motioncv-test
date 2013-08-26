@@ -1,5 +1,5 @@
 class Not
   def convert srcMat, dstMat
-    MotionCV.not(srcMat, dst:dstMat)
+    Cv::not(srcMat, dstMat)
   end
 end
