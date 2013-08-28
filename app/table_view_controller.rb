@@ -10,7 +10,8 @@ class TableViewController < UITableViewController
       {title: "Canny", converter: Canny.new},
       {title: "Not", converter: Not.new},
       {title: "Canny+Not", converter: CannyNot.new},
-      {title: "Cartoonize", converter: Cartoonize.new}
+      {title: "Cartoonize", converter: Cartoonize.new},
+      {title: "Bitwise and/not/or/xor", converter: BitwiseAndnotorxor.new},
     ]
   end
 
