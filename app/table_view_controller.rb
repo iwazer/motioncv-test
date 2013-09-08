@@ -12,6 +12,7 @@ class TableViewController < UITableViewController
       {title: "Canny+Not", converter: CannyNot.new},
       {title: "Cartoonize", converter: Cartoonize.new},
       {title: "Bitwise and/not/or/xor", converter: BitwiseAndnotorxor.new},
+      {title: "Tilt Shift Lens", converter: TiltShiftLensTableViewController},
     ]
   end
 
@@ -30,15 +31,19 @@ class TableViewController < UITableViewController
 
   def tableView tableView, didSelectRowAtIndexPath:indexPath
     @data = @rows[indexPath.row]
-    self.performSegueWithIdentifier("ImageView", sender:self)
+    if @data[:converter].is_a?(Class)
+      self.performSegueWithIdentifier(@data[:converter].to_s, sender:self)
+    else
+      self.performSegueWithIdentifier("ImageView", sender:self)
+    end
   end
 
   def prepareForSegue segue, sender:sender
+    controller = segue.destinationViewController
     if segue.identifier == "ImageView"
-      controller = segue.destinationViewController
       controller.data = @data
-      controller.selected_image = @selected_image
     end
+    controller.selected_image = @selected_image
   end
 
   def take_phot sender

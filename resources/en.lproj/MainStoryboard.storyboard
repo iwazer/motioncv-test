@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b84-E7-7ET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="707"/>
+            <point key="canvasLocation" x="1500" y="707"/>
         </scene>
         <!--Table View Controller - Samples-->
         <scene sceneID="dAr-mF-2rX">
@@ -73,11 +73,45 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="cmM-iM-cm3" kind="push" identifier="ImageView" id="zBP-dC-X2x"/>
+                        <segue destination="dHr-Iv-nQN" kind="push" identifier="TiltShiftLensTableViewController" id="NME-yc-7cr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEG-Eu-7s1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="441" y="707"/>
+        </scene>
+        <!--Tilt Shift Lens Table View Controller-->
+        <scene sceneID="XNM-mW-u8l">
+            <objects>
+                <tableViewController id="dHr-Iv-nQN" customClass="TiltShiftLensTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MCi-Zw-84D">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cW6-Ig-gIW">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dHr-Iv-nQN" id="2OX-Le-i6s"/>
+                            <outlet property="delegate" destination="dHr-Iv-nQN" id="EC3-Vd-qah"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="SP7-J3-1T3"/>
+                    <connections>
+                        <segue destination="cmM-iM-cm3" kind="push" identifier="ImageView" id="2Oo-FJ-JT3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBT-u5-Z4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="1154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eZW-Ae-ZZW">
@@ -102,9 +136,6 @@
                 <relationship kind="action" name="viewDidLoad"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="TableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TableViewController.h"/>
@@ -133,4 +164,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Oo-FJ-JT3"/>
+    </inferredMetricsTieBreakers>
 </document>
