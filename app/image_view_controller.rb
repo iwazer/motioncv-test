@@ -8,9 +8,9 @@ class ImageViewController < UIViewController
     super
     self.title = @data[:title]
     image = @selected_image || UIImage.imageNamed("sato.jpg")
-    srcMat = MotionCV.MotionMatFromUIImage(image)
+    srcMat = Cv::MotionMatFromUIImage(image)
     dstMat = MotionMat.new
     @data[:converter].convert(srcMat, dstMat)
-    @imageView.image = MotionCV.UIImageFromMotionMat(dstMat)
+    @imageView.image = Cv::UIImageFromMotionMat(dstMat)
   end
 end

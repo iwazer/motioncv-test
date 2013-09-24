@@ -7,6 +7,7 @@ Bundler.require
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'opencv-test'
+  app.deployment_target = '6.1'
   app.info_plist['UIMainStoryboardFile'] = 'MainStoryboard'
 
   app.codesign_certificate = ENV['CODESIGN_CERTIFICATE'] if ENV['CODESIGN_CERTIFICATE']
